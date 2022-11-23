@@ -20,6 +20,7 @@ I decided to make this project because I felt like asian history and asian voice
 7. Pyenchant
 8. Glob
 9. Numpy
+10. Please check requirements.txt for additional information
 
 ## Reflection
 This system challenged me as a computer scientist because it made me think about
@@ -64,6 +65,8 @@ it is for people to learn about Asian American history!
 - https://www.tensorflow.org/text/tutorials/text_generation
 - https://pypi.org/project/textstat/
 - https://dev.to/shantanu_jana/save-textbox-value-to-file-using-javascript-2ljp
+- https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
+- https://www.assemblyai.com/blog/javascript-text-to-speech-easy-way/
 
 
 ## Poem Sources
