@@ -1,0 +1,34 @@
+{% extends './index.html' %}
+{% load static %}
+{% block content %}
+<div class="container-outer">
+    <div class="main-outer">
+        <button type="button" class="speaker-button-large">
+            <div id="speaker" class="speaker-button"></div>
+            <img src="{% static 'images/lee-20-1-removebg-preview.png' %}" alt="" id="speaker">
+        </button>
+    </div>
+    <div class="main-outer">
+        <div class="inner-container-right">
+            <h2>Say Something Nice About Asian Americans!</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <textarea id="textarea" rows=15 cols=70 name="speech-output">{{ poem }}</textarea>
+                <div class="speech-recog-outer">
+                    <button type="button" class="button_medium" onclick="toggleSpeechRecognition()" >
+                        <div id="mic" class="mic-button"></div>
+                    </button>
+                    <span id="mic-status"></span>
+                    <input type="Submit" value="Voice It!" class="btn btn-success">
+                </div>
+            </form>
+            <div class="bottom_buttons">
+                <button id="clearbtn" type="button" class="btn btn-danger">Clear</button>
+                <button id="downloadBtn" type="button" class="btn btn-light">Download</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
