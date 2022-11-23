@@ -293,6 +293,15 @@ class MyModel(tf.keras.Model):
         self.dense = tf.keras.layers.Dense(vocab_size)
 
     def call(self, inputs, states=None, return_state=False, training=False):
+        """
+        Call and train next states
+
+        Args:
+            inputs(char): current input
+            states(States): current state
+            return_state(bool): return state
+            training(bool): check if training
+        """
         x = inputs
         x = self.embedding(x, training=training)
         if states is None:

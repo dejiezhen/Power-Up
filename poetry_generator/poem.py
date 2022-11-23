@@ -99,8 +99,6 @@ class Poem:
         del poem_list[last_word_idx+1:]
         return poem_list
 
-    # def word_with_newlines(self):
-
     def clean_poem(self, poem_list):
         """
         Make the poem more readable with word matching and word
@@ -128,39 +126,12 @@ class Poem:
                     poem_list[index] = word_matched
                     word_match_cnt += 1
                 else:
-                    print(index)
                     try:
                         poem_list[index] = self.dictionary.suggest(token)[0]
                         suggest_word_cnt += 1
                     except:
                         print("No suggested words found")
-            # elif index > 10 \
-            #     and token != '\n' \
-            #     and not self.dictionary.check(token) \
-            #     and re.search('\n', token):
-                
-            #     nline = token.count('\n')
-            #     token_list = token.split('\n')
-            #     new_words = []
-            #     for i, word in enumerate(token_list):
-            #         if word == '': 
-            #             continue
-            #         word_matched = self.word_match(word)
-            #         if word_matched:
-            #             new_words.append(word_matched)
-            #             word_match_cnt += 1
-            #         else:
-            #             print(index)
-            #             try:
-            #                 new_words.append(self.dictionary.suggest(word)[0])
-            #                 suggest_word_cnt += 1
-            #             except:
-            #                 print('No suggested words found')
-
-            #     newline_joiner = '\n' * nline
-            #     joined_words = newline_joiner.join(new_words)
-            #     poem_list[index] = joined_words
-     
+         
         poem_list = self.delete_last_line(poem_list)
         return ' '.join(poem_list), word_match_cnt, suggest_word_cnt
 

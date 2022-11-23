@@ -13,6 +13,7 @@ from django.conf import settings
 import textstat
 import time
 import os
+from nrclex import NRCLex
 
 class Evaluator:
     def __init__(self, initial_poem, cleaned_poem, 
@@ -47,7 +48,8 @@ class Evaluator:
         poem_similarity = self.evaluate_poem_similarity()
         cleaned_poem_similarity = self.evaluate_old_new()
         automated_score, flesch_score, dale_chall = self.evaluate_poem_readability()
-        emotions_scores = self.evaluate_emotions()
+        positivity_score = self.evaluate_positivity()
+        emotions = self.evaluate_emotions()
         
         with open(file, 'w') as f:
             f.write('Power Up Asia')
@@ -80,9 +82,22 @@ class Evaluator:
             f.write('     Suggested Word Change Count: ' \
                 + str(self.suggest_word_cnt))
             f.write('\n\n')
+            f.write('Positivity Score: \n')
+            f.write('     Positive ' + str(positivity_score['positive']) + '\n')
+            f.write('     Negative ' + str(positivity_score['negative']) + '\n')
+            f.write('\n')
             f.write('Emotional Score: \n')
-            f.write('     positive ' + str(emotions_scores['positive']) + '\n')
-            f.write('     negative ' + str(emotions_scores['negative']) + '\n')
+            f.write('     Joy: ' + str(emotions.get('joy', 0)) + '\n')
+            f.write('     Fear: ' + str(emotions.get('fear', 0)) + '\n')
+            f.write('     Anger: ' + str(emotions.get('anger', 0)) + '\n')
+            f.write('     Anticipation: ' + str(emotions.get('anticipation', 0)) 
+                                        + '\n')
+            f.write('     Trust: ' + str(emotions.get('trust', 0)) + '\n')
+            f.write('     Surprise: ' + str(emotions.get('surprise', 0)) + '\n')
+            f.write('     Positive: ' + str(emotions.get('positive', 0)) + '\n')
+            f.write('     Negative: ' + str(emotions.get('negative', 0)) + '\n')
+            f.write('     Sadness: ' + str(emotions.get('sadness', 0)) + '\n')
+            f.write('     Disgust: ' + str(emotions.get('disgust', 0)) + '\n')
 
     def evaluate_poem_similarity(self):
         """
@@ -108,7 +123,6 @@ class Evaluator:
         return score
 
     def evaluate_poem_readability(self):
-        # https://en.wikipedia.org/wiki/Readability
         """
         Evaluate how readable the poem is using various readability formulas
         including automated, flesch reading ease, and dale chall
@@ -118,7 +132,6 @@ class Evaluator:
         Args:
             none
         """
-        print(self.cleaned_poem)
         automated_score = textstat.automated_readability_index(self.cleaned_poem)
         flesch_score = textstat.flesch_reading_ease(self.cleaned_poem)
         dale_chall = textstat.dale_chall_readability_score(self.cleaned_poem)
@@ -136,7 +149,7 @@ class Evaluator:
         doc2 = self.nlp(self.cleaned_poem)
         return doc2.similarity(doc1)
 
-    def evaluate_emotions(self):
+    def evaluate_positivity(self):
         """
         Evaluate the poem on positivity and negativity
 
@@ -146,3 +159,13 @@ class Evaluator:
         nlp = eng_spacysentiment.load()
         doc = nlp(self.cleaned_poem)
         return doc.cats
+
+    def evaluate_emotions(self):
+        """
+        Evaluate the poem on positivity and negativity
+
+        Args:
+            none
+        """
+        emotion = NRCLex(self.cleaned_poem)
+        return emotion.raw_emotion_scores

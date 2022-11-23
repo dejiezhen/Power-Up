@@ -8,7 +8,6 @@ def index(request):
     Args:
         none
     """
-    print(type(request))
     context = {}
     if request.method == "POST":
         poem = Poem()

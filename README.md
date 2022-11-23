@@ -20,7 +20,8 @@ I decided to make this project because I felt like asian history and asian voice
 7. Pyenchant
 8. Glob
 9. Numpy
-10. Please check requirements.txt for additional information
+10. NRClex
+11. Please check requirements.txt for additional information
 
 ## Reflection
 This system challenged me as a computer scientist because it made me think about
