@@ -5,6 +5,7 @@ I decided to make this project because I felt like asian history and asian voice
 
 ## How to Run
 > Please create a .env file and paste in the key I sent to you in the comments
+
 ` python3 manage.py runserver `
 
 **Packages to Download**
