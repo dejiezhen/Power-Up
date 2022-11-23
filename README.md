@@ -10,7 +10,7 @@ I decided to make this project because I felt like asian history and asian voice
 
 ` python3 manage.py runserver `
 
-**Packages to Download**
+## Packages to Download
 1. Django
 2. Spacy
 3. Tensorflow
