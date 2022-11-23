@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Island+Moments&family=PT+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'PT Sans', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: red;
+    /* font-family: 'PT Sans', sans-serif;     */
+    background-image: linear-gradient(to right, #FB7BA2, #FCE043);
+}
+
+.navbar-background {
+    /* background-image: url("/static/images/SJM_AAPIprotest_0321_01.webp"); */
+    /* height: 50%; */
+    background-color: rgb(254, 215, 0);
+}
+
+#navbar-logo {
+    width: 5rem;
+    height: auto;
+}
+
+.about {
+    display: inline-block;
+    /* background-color: aquamarine;
+    border: 1px solid aquamarine; */
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    font-size: large;
+}
+
+.container-outer {
+    display: flex;
+    /* border: 1px solid blue; */
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 5% auto;
+}
+
+.speaker-button {
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.speaker-button-large {
+    background: none;
+    border: none;
+}
+
+.inner-container-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid purple; */
+}
+
+#speaker {
+    /* margin: 10% 25%; */
+    width: 100%;
+    height: auto;
+    background-color: inherit;
+}
+
+.speech-recog-outer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid red; */
+    border-radius: 25px;
+    text-align: center;
+    width: 50%;
+    margin: 10px auto;
+}
+
+.mic-button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.button_medium {
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+    border-radius: 36px;
+    border: 0;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    margin: 10px auto;
+}
+
+.bottom_buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#mic {
+    /* width: 5rem;
+    height: 5rem; */
+    background-image: url("/static/images/mic.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}

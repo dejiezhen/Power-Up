@@ -5,6 +5,9 @@ I decided to make this project because I felt like asian history and asian voice
 
 ## How to Run
 > Please create a .env file and paste in the key I sent to you in the comments
+> Please check my requirements.txt for package versions that I used. I am
+> currently operating this program on Python 3.10 rather than 3.11 for Tensorflow 
+
 ` python3 manage.py runserver `
 
 **Packages to Download**
@@ -60,6 +63,8 @@ it is for people to learn about Asian American history!
 - https://www.poetryfoundation.org/collections/101589/asian-american-voices-in-poetry
 - https://www.tensorflow.org/text/tutorials/text_generation
 - https://pypi.org/project/textstat/
+- https://dev.to/shantanu_jana/save-textbox-value-to-file-using-javascript-2ljp
+
 
 ## Poem Sources
 - https://poets.org/poem/muse
